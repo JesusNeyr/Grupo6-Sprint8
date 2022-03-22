@@ -2,16 +2,12 @@ const path = require('path');
 const db = require('../../database/models');
 const sequelize = db.sequelize;
 const { Op } = require("sequelize");
-//const moment = require('moment');
 
-
-//Aqui tienen otra forma de llamar a cada uno de los modelos
 const User = db.User;
-//---------------------------
-//Dentro del actorsAPIController uso las dos forma de poder llamar a nuestros modelo
-//----------------------------------
+
 const controllerApiUser = {
     index: async(req,res) =>{
+        if ( !req.query.pages ) {
         let userConsult = await User.findAll({attributes: ['id','first_name','last_name','email','avatar_id']});
         let response ={
             meta:{
@@ -36,6 +32,9 @@ const controllerApiUser = {
             return user
         });
         return res.json(response)
+        }else{
+            pagination(req,res)
+        }
     },
     detail: async(req,res)=>{
         let id = req.params.id;
@@ -59,6 +58,18 @@ const controllerApiUser = {
         }
 
         return res.json(response)
+    },
+    count: async(req,res)=>{
+        let userConsult = await User.findAll();
+        let response = {
+            meta: {
+                status: 200,
+                total: userConsult.length,
+                url: 'api/users/count'
+            },
+            data: {userConsult}
+        }
+        res.json(`El total de usuario es ${response.meta.total}`)
     }
     
 }

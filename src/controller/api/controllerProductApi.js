@@ -78,6 +78,18 @@ const controllerApiProduct = {
             }
         }
         return res.json(response)
+    },
+    count: async(req,res)=>{
+        let productConsult = await Product.findAll();
+        let response = {
+            meta: {
+                status: 200,
+                total: productConsult.length,
+                url: 'api/users/count'
+            },
+            data: {productConsult}
+        }
+        res.json(`El total de usuario es ${response.meta.total}`)
     }
 }
 
