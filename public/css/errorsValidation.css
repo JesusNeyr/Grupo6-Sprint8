@@ -1,0 +1,7 @@
+.div-error{
+    display: none;
+}
+.div-error-block{
+    display: block;
+    color: red;
+}

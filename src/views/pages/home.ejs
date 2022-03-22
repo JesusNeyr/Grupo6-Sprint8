@@ -1,0 +1,109 @@
+<%- include("../partials/head",{title:"Home"})  %> 
+<%- include("../partials/menuHeader.ejs")  %>  
+    <!-- Seccion del carrusel -->
+    <section class="carrouselSection">
+        <!-- contenedor de box-imagenes -->
+        <div class="contenedor-imagenes-carruselHome">
+            <!-- imagenes del carrusel -->
+            <ul>
+                <li><img src="img/header2.jpg" alt="Images1"></li>
+                <li><img src="img/jugueteria_gugu.png" alt="images2"></li>
+                <li><img src="img/carrusel-navidad.png" alt="images1" alt="images3"></li>
+            </ul>
+        </div>
+    </section>
+    <!-- seccion de iconos edades y ofertas -->
+    <section class="contGeneral">
+        <article class="bannerInfoHome">
+            <!-- contenedor truck card dollars -->
+                <div> 
+                    <i class="fas fa-truck"></i> 
+                    <div>
+                        <h5>ENVIOS A TODO EL PAIS</h5>
+                        <p>costo bajos</p>
+                    </div>            
+                </div>
+                <div>
+                    <i class="far fa-credit-card"></i> 
+                    <div>
+                        <h5>TODOS LOS MEDIOS DE PAGO</h5>
+                        <p>Crédito y débito</p>
+                    </div>
+                </div>
+                <div>
+                    <i class="fas fa-dollar-sign"></i>
+                    <div>
+                        <h5>20% OFF</h5>
+                        <p>Pagando en efectivo</p>
+                    </div>
+                </div>                
+            </div>
+        </article>
+        <!-- Productos por edades -->
+        <article class="categoriasHome">
+            <h3>BUSCÁ POR EDADES</h3>
+                <div class="contenedor-imgHome">
+                    <div>
+                        <a href="/category/1/list">
+                        <div class="catImgHome">
+                            <img src="img/icons/img/baby_0_24.jpg" alt="de 0 a 24">
+                        </div>
+                        </a>
+                        <h4>DE 0 A 24 MESES</h4>
+                    </div>
+                    <div>
+                        <a href="/category/2/list">
+                        <div class="catImgHome">
+                            <img src="img/icons/img/edad_2_3.jpg" alt="de 2 a 3">
+                        </div>
+                        </a>
+                        <h4>DE 2 A 3 AÑOS</h4>
+                    </div>
+                    <div>
+                        <a href="/category/3/list">
+                        <div class="catImgHome">
+                            <img src="img/icons/img/de_4_6.jpg" alt="de 4 a 6">
+                        </div>
+                        </a>
+                        <h4>DE 4 A 6 AÑOS</h4>
+                    </div>  
+                </div>
+                <h3>MÁS POPULARES</h3>
+                <div class="contenedor-imgHome">
+                    <% if(popularConsult.length == 0){ %> 
+                        <h3 class="searchNull">No hay datos suficientes para esto</h3>
+                    <% } %> 
+                   <% for( let i = 0; i < popularConsult.length; i++ ) { %>
+                    <div>
+                        <div class="catImgHome">
+                            <img src="img/products/<%= popularConsult[i].products.images[0].image %>" alt="boligrafo Multicolor" class="imagenes-edades">
+                        </div>
+                        <h4><%= popularConsult[i].products.name %> </h4>
+                        <% let claseTachado="tachadoPrice";  if(access == 3 || !access){ %> 
+                            <p class="<%= popularConsult[i].products.discounts.discount > 0 ? claseTachado : null %>">$<%= popularConsult[i].products.price_inv %></p>
+                        <% } %> 
+                        <% if(access == 3 && popularConsult[i].products.discounts.discount > 0 || !access && popularConsult[i].products.discounts.discount > 0){ %> 
+                            <div class="contenedor-producto-cuota">
+                                <p>$<%= popularConsult[i].products.price_inv - (popularConsult[i].products.price_inv*popularConsult[i].products.discounts.discount/100) %> | -<%= popularConsult[i].products.discounts.discount %>%</p>
+                            </div>
+                        <% } %> 
+                        <% if(access == 2){ %> 
+                            <p class="">$<%= popularConsult[i].products.price_inv %></p>
+                        <% } %> 
+                        <% if(access == 2 && popularConsult[i].products.discounts.discount > 0){ %> 
+                            <div class="contenedor-producto-cuota">
+                                <p>$<%= popularConsult[i].products.price_who - (popularConsult[i].products.price_who*popularConsult[i].products.discounts.discount/100) %> | -<%= popularConsult[i].products.discounts.discount %>%</p>
+                            </div>
+                        <% } %> 
+                        <% if(access == 1){ %> 
+                            <p class="">Individual $<%= popularConsult[i].products.price_inv %></p>
+                            <p class="">Mayorista $<%= popularConsult[i].products.price_who %></p>
+                        <% } %> 
+                    </div> 
+                    <% } %> 
+                </div>               
+        </article>
+        <!-- <article class="contenidos"></article> -->
+    </section>
+    <!-- footer -->
+<%- include("../partials/footerBase.ejs")  %>

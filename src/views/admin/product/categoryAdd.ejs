@@ -1,0 +1,13 @@
+<%- include("../../partials/head.ejs",{title:"Editar categoria"})  %> 
+<%- include("../../partials/menuHeader.ejs")  %>  
+<section class="contGeneral">
+    <div class="listCategory">
+        <form action="/category/add" method="post" class="formEditCategory">
+            <h3>Crear nueva categoría </h3>
+            <label for="name">Nombre de la categoría</label>
+            <input placeholder="Coloque el nombre de la categoría" name="name" type="text" id="name" required>
+            <input type="submit" value="Confirmar">
+        </form>
+    </div>
+</section>
+<%- include("../../partials/footerBase.ejs")  %>

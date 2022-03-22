@@ -1,0 +1,42 @@
+<%- include ('../partials/head',{title:"Productos"}) %>
+<%- include('../partials/menuHeader')  %>
+<%- include('../partials/filterCategory')  %>
+        <article class="products-lista-articulos">
+            <% db.forEach(element => { %>
+                <div class="products-lista-articulos-contenedor_producto">
+                        <a href="/products/detail/<%= element.id %>">
+                        <% 
+                            let claseTachado="tachadoPrice"
+                            for(let i = 0; i<element.images.length;i++){ %>
+                            <img src="/img/products/<%= element.images[i].image %> " alt="articulox">
+                        <% } %> 
+                        <div class="contenedor-producto-info">
+                            <p><%= element.name %> </p>
+                            <% if(access == 3 || !access){ %> 
+                                <p class="<%= element.discounts.discount > 0 ? claseTachado : null %>">$<%= element.price_inv %> </p>
+                            <% } %> 
+                            <% if(access == 2){ %> 
+                                <p class="<%= element.discounts.discount > 0 ? claseTachado : null %>">$<%= element.price_who %> </p>
+                            <% } %> 
+                            <% if(access == 1){ %> 
+                                <p>Individual $<%= element.price_who %> </p>
+                                <p>Mayorista $<%= element.price_inv %> </p>
+                            <% } %> 
+                        </div>
+                        <% if (access == 3 && element.discounts.discount > 0 || !access && element.discounts.discount > 0) { %>
+                            <div class="contenedor-producto-cuota">
+                                <p>$<%= element.price_inv - (element.price_inv*element.discounts.discount/100) %> | -<%= element.discounts.discount %>%</p>
+                            </div>
+                         <% } %> 
+                        <% if (access == 2 && element.discounts.discount > 0) { %>
+                            <div class="contenedor-producto-cuota">
+                                <p>$<%= element.price_who - (element.price_who*element.discounts.discount/100) %> | -<%= element.discounts.discount %>%</p>
+                            </div>
+                         <% } %> 
+                            
+                        </a>
+                        </div>
+            <% }) %>
+        </article>
+    </section>
+<%- include('../partials/footerBase')  %> 

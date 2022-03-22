@@ -1,0 +1,79 @@
+.detailContact{
+    background: #F3F0D7;
+    width: 60%;
+    margin: 10px auto;
+    padding: 10px;
+    border:1px solid #000;
+    border-radius: 5px;
+}
+.contContact{
+    display: grid;
+    grid-template-columns: repeat(5, 1fr);
+    grid-template-rows: repeat(5, 1fr);
+    grid-column-gap: 5px;
+    grid-row-gap: 5px;
+}    
+.contC1 { 
+    grid-area: 1 / 1 / 2 / 6; 
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding-left: 20px;
+}
+.contC1 > h3{
+    font-size: 2rem;
+}
+.contC1 > img{
+    width: 20%;
+}
+.cajaMapaCont{
+    width: 90%;
+    background: #489aee;
+    line-height: 0;
+    margin: auto;
+}
+.cajaMapaCont > img{
+    width: 100%;
+}
+.contC2 { grid-area: 2 / 1 / 6 / 6; }
+.contC3 { grid-area: 2 / 3 / 6 / 6;}
+.contactForm{
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+.contactForm > input{
+    width: 90%;
+    padding: 10px 5px;
+    margin: 5px 0;
+}
+.contactForm > textarea{
+    width: 90%;
+    resize: vertical;
+}
+.contactForm > input[type="submit"]{
+    background: #CEE5D0;
+    border: 1px solid #c7c7c7;
+    border-radius: 12px;
+}
+.contactForm > input[type="submit"]:hover{
+    background-color: #b0c5b1;
+    transition-duration: 0.2s;
+}
+@media only screen and (min-width: 768px){
+    
+}
+@media only screen and (min-width: 1024px){
+    .contContact{
+        grid-template-rows:auto
+    }
+    .contC1{
+        grid-area: auto;
+        grid-column: span 5;
+    }
+    .contC1 > img{
+        width: 14%;
+    }
+    .contC2 { grid-area: 2 / 1 / 6 / 3; }
+}

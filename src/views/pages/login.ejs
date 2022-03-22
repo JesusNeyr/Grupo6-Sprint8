@@ -1,0 +1,37 @@
+<%- include("../partials/head",{title:"Iniciar sesion"})  %> 
+<%- include("../partials/menuHeader.ejs")  %>  
+    <!--LOGIN-->
+    <div class="iniciar-sesion">
+        <h3>INICIAR SESIÓN</h3>
+        <img src="img/oso.png" alt="oso">
+    </div>
+    <section class="sectionLogin">
+        <div class="divLogin">
+            <div class="divLogin2">
+                <form class="formLogin" action="/login" method="post">
+                    <input type="email" value="<%= locals.oldEmail ? locals.oldEmail : null %>" placeholder="Email o usuario" name="email" id="email" class="emailLogin" required/>
+                    <% if(locals.email){ %>
+                        <p class="errForm"> <%= locals.email %></p>  
+                     <% } %> 
+                     <div class="divErrVacio errForm"></div>
+                     <div class="divErrEmail errForm"></div>
+                     <input type="password" placeholder="Contraseña" name="pass" id="password" class="passLogin" required/>
+                     <div class="divErrVacioPass errForm"></div>
+                    <% if(locals.password){ %>
+                        <p class="errForm"><%= locals.password %></p>  
+                    <% } %> 
+                    <div class="recordarUser">
+                        <input type="checkbox" name="recordarUsuario" value="Recordarme" checked>
+                        <label for="terminos">Recordarme</label>
+                    </div>                    
+                    <a href= "#">¿Olvidaste tu contraseña?</a>
+                    <input type="submit" value="INGRESAR" class="button-login">
+                    <p>¿No tenés una? <a href="/register">crear cuenta</a></p>
+                    
+                </form>
+            </div> 
+        </div>
+    </section>
+    <script src="/js/validation/loginValidation.js"></script>
+    <!-- FOOTER -->
+<%- include("../partials/footerBase.ejs")  %>

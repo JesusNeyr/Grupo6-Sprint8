@@ -1,0 +1,51 @@
+.adminAddProductForm{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+.adminAddProductForm > h3{
+    font-size: 1.2rem;
+    margin: 0 0 10px 0;
+    padding: 5px;
+    border-bottom: 10px solid #FF7878;
+}
+.adminAddProductForm > input{
+    width: 80%;
+    margin: 5px 0;
+    padding: 10px;
+    outline: none;
+}
+.adminAddProductForm > div > label{
+    margin-right: 4px;
+}
+.adminAddProductForm > div{
+    display: flex;
+    justify-content: space-between;
+}
+.adminAddProductForm > textarea{
+    width: 80%;
+    resize: vertical;
+}
+.adminAddProductForm > input[type="submit"]{
+    width: auto;
+    border: none;
+    background: #FF7878;
+    border-radius: 5px;
+}
+.contAdd{  
+    background: #F3F0D7;
+    border: 1px solid #000;
+    padding: 5px;
+    border-radius: 5px;
+    margin: 20px auto;
+}
+.editProductCont > form{
+    flex-direction: row;
+    justify-content: space-between;
+    background: #F3F0D7;
+}
+@media only screen and (min-width: 768px){
+    
+}
+@media only screen and (min-width: 1024px){
+}

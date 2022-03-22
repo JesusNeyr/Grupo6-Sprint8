@@ -1,0 +1,27 @@
+<%- include("../../partials/head.ejs",{title:"Productos"}) %>
+    <div class="contAdminMain">
+        <%- include("../../partials/admHeader.ejs") %>
+        <section>
+            <div class="contAdminPrin">
+                <div class="gridListProductAdmin">
+                    <div class="gridListProductAdminHead">
+                        <div>#</div>
+                        <div>Producto</div>
+                        <div class="gridProductOcultoMobile">Categoría</div>
+                        <div class="gridProductOcultoMobile">Precio</div>
+                        <div>Acción</div>
+                    </div>
+                    <% db.forEach(element => { %>
+                        <div class="gridListProductAdminItem">
+                            <div><%= element.id %></div>
+                            <div><%= element.name %></div>
+                            <div class="gridProductOcultoMobile"><%= element.cat %></div>
+                            <div class="gridProductOcultoMobile"><%= element.precio %></div>
+                            <div><i class="fas fa-edit"></i> <i class="fas fa-trash-alt gridProductOcultoMobile"></i></div>
+                        </div>
+                        <% }) %>
+                </div>
+            </div>
+        </section>
+    </div> 
+<%- include("../../partials/footerAdmin.ejs") %>

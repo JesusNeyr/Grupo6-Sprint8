@@ -1,0 +1,99 @@
+<%- include("../partials/head",{title:"Carrito"})  %> 
+<%- include("../partials/menuHeader.ejs")  %>  
+<section class="carrContenido"> 
+    <h3>CARRITO DE COMPRAS</h3>
+    <div class="infoCarrito"><p>PRODUCTOS</p> <p>SUBTOTAL</p></div>  
+    <% let cuenta=0; let sumaDiscount=0; if(orderConsult.length > 0){ %> 
+    <% for(let i = 0; i < orderConsult.length; i++){ %>
+    <% 
+        let precio;
+        access == 1 || access== 3 ? precio = orderConsult[i].products.price_inv : precio = orderConsult[i].products.price_who
+    %> 
+    <div class="carritoInfoCont">
+        <div class="imgCarrito"> 
+            <div class="carrImagen"><img src="/img/products/<%= orderConsult[i].products.images[0].image %>" alt="Imagen de trenes"></div>
+            <div class="carrTren"> 
+                <div>
+                    <p><%= orderConsult[i].products.name  %></p> 
+                    <p class="<%= orderConsult[i].products.discounts.discount > 0 ? "tachadoPrice" : null %>">$<%= precio %></p>
+                    <p class="contenedor-producto-cuota">$<%= precio - (precio*orderConsult[i].products.discounts.discount/100) %> -<%= orderConsult[i].products.discounts.discount %>%</p>
+                </div>
+                <div class="carrColumna">
+                    <div>+</div>
+                    <div>1</div>
+                    <div>-</div>
+                </div> 
+            </div>
+        </div>
+        <div class="carrEliminar">
+            <form action="/carrito/delete/<%= orderConsult[i].products.id %>?_method=DELETE" method="post">
+                <button type="submit"><i class="fas fa-trash"></i></button>
+            </form>
+        </div>
+    </div>
+    <% cuenta += precio  %>  
+    <%  } %>
+    <% }else{ %>
+        <h3 class="msgCarrito">Carrito vacio</h3>
+    <% } %>  
+    <div class="carritoSubtotal"> 
+        <p>SUBTOTAL(sin envio):</p>
+        <p>$<%= cuenta  %></p>
+    </div>
+    <div class="carritoEnvio">
+        <div>
+            <p class="infoEnvio">
+                <i class="fas fa-truck"></i>
+                <span>ENVIOS GRATIS</span> 
+                SUPERANDO LOS $9.000           
+            </p>
+        </div>
+        <div>
+            <form action="" class="infoCalcular">
+                <input type="text">
+                <button>CALCULAR</button>
+            </form >
+            <p> NO SE MI CODIGO POSTAL</p>
+        </div>
+        <div class="infoRetiro">
+            <p><i class="fas fa-store"></i>
+                RETIRO EN EL LOCAL</p>
+            <input type="radio"> 
+            <!-- comentario -->    
+        </div>
+    </div>
+    <div class="infoCodigo">
+        <div>
+            <p>Codigo Promocional:</p>
+            <form class="validarCodigo" action="/carrito/codePromo" method="post">
+                <input type="text" placeholder="Ingresa tu código" name="code">
+                <input type="submit" value="Validar">
+                <!-- <div class="div-error-block">Codigo invalido</div> -->
+            </form>
+        </div>
+        <% if(codeUse == 1){ %> 
+            <div class="infoPromocion">
+                <% for(let i = 0; i < promoCodes.length; i++ ) { %>
+                    <div>
+                        <span><%= promoCodes[i].promoCodes.code %> - <%= promoCodes[i].promoCodes.discount %>%</span>
+                        <form action="/carrito/deleteCode/<%= promoCodes[i].promoCodes.id %>?_method=DELETE" method="post">
+                            <button type="submit" class="deleteCode"><i class="fas fa-times"></i></button>
+                        </form>
+                    </div>
+                <% } %> 
+            </div>
+        <% } %> 
+    </div>
+    <div class="infoTotal"> 
+        <p>TOTAL</p>
+        <div class="cuentaCarrito">
+            <div> $<%= cuenta  %></div>
+            <% for(let i = 0; i < promoCodes.length; i++ ){ %>
+            <div>- <%= promoCodes[i].promoCodes.discount %>%</div>
+            <% sumaDiscount += promoCodes[i].promoCodes.discount %>  
+            <% } %> 
+            <div class="cuentaCarritoTotal">$<%= sumaDiscount > 100 ? cuenta - (cuenta*100/100) : cuenta - (cuenta*sumaDiscount/100) %></div>
+        </div>
+    </div>
+</section>
+<%- include("../partials/footerBase.ejs")  %> 

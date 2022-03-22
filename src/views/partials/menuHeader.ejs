@@ -1,0 +1,35 @@
+<header class="header">
+    <div class="logoHeader">
+        <a href="/"><img src="/img/logo_pequeño.png" alt="logo gugu"></a>
+    </div>
+    <div class="menuHeader ocultarMenu">
+        <ul>
+            <li><a href="/">INICIO</a></li>
+            <li><a href="/products">PRODUCTOS</a></li>
+            <% if(user && access == 1){ %> 
+                <li><a href="/products/create">CREAR</a></li>
+            <% } %> 
+            <li><a href="/somos">QUIENES SOMOS</a></li>
+            <li><a href="/contacto">CONTACTO</a></li>
+            <% if(user){ %>
+                <li><a href="/perfil/<%= user.id %> "><i class="fas fa-user"></i></a></li>
+                <li><a href="/carrito"><i class="fas fa-shopping-cart"></i></a></li>
+                <li><a href="/logout"><i class="fas fa-sign-out-alt"></i></a></li>
+            <% }else{ %> 
+                <li><a href="/login"><i class="fas fa-user"></i></a></li>
+                <li><a href="/register">Registro</a></li>
+                <li><a href="/carrito"><i class="fas fa-shopping-cart"></i></a></li>
+            <% } %> 
+            <li class="cerrarMenu">CERRAR</li>
+        </ul>
+    </div>
+    <div class="searchHeader">
+        <form action="/products/search" method="get" class="searchFormHeader">
+            <input type="text" name="search" id="buscar" placeholder="Buscar...">
+            <button><i class="fas fa-search"></i></button>
+        </form>
+    </div>
+    <div class="menuBurger">
+        <i class="fas fa-bars"></i>
+    </div>
+</header>

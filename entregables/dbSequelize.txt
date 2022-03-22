@@ -1,0 +1,52 @@
+//orden de creación
+cats *
+sizes *
+discounts *
+products *
+images *
+avatars *
+rols *
+users *
+visited *
+address *
+payments *
+status *
+orders *
+shipping *
+orderDetail*
+promocode*
+usePromoCode*
+---------------------------------------------
+sequelize model:generate --name Cat --attributes name:string
+
+sequelize model:generate --name Size --attributes size:string
+
+sequelize model:generate --name Discount --attributes discount:integer
+
+sequelize model:generate --name Product --attributes name:string,price_inv:integer,price_who:integer,stock:integer,stock_min:integer,stock_max:integer,cat_id:integer,size_id:integer,discount_id:integer,description:string,visibility:integer
+
+sequelize model:generate --name Image --attributes image:string,id_products:integer
+
+sequelize model:generate --name Avatar --attributes avatar:string
+
+sequelize model:generate --name Rol --attributes rol:string
+
+sequelize model:generate --name User --attributes first_name:string,last_name:string,email:string,pass:string,avatar_id:integer,rol_id:integer
+
+sequelize model:generate --name Visited --attributes visited:integer,product_id:integer,user_id:integer,time:date
+
+sequelize model:generate --name Address --attributes  province:string,city:string,street:string,number:integer,cp:integer,phone:integer,floor:string,user_id:integer
+
+sequelize model:generate --name Payment --attributes name:string
+
+sequelize model:generate --name Status --attributes status:integer
+
+sequelize model:generate --name Order --attributes date:date,total:integer,payments_id:integer,user_id:integer,status_id:integer
+
+sequelize model:generate --name Shipping --attributes street:string,number:integer,price:integer,order_id:integer,payment_id:integer,city:string,province:string,floor:string,cp:integer,phone:integer
+
+sequelize model:generate --name OrderDetail --attributes quantity:integer,subtotal:integer,order_id:integer,product_id:integer,user_add_id:integer
+
+sequelize model:generate --name PromoCode --attributes code:string,active:integer,discount:integer
+
+sequelize model:generate --name UsePromoCode --attributes id_code:integer,id_user:integer,used:integer

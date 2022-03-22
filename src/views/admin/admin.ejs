@@ -1,0 +1,42 @@
+<%- include("../partials/head",{title:"Admin"})  %> 
+    <div class="contAdminMain">  
+        <%- include("../partials/admHeader")  %> 
+        <section class="contAdminPrin">
+            <canvas id="InfoAdminPrin"></canvas>
+            <!-- <div class="AdminPrinInfo">
+                <div class="AdminPrinInfoItem">
+                    <h3>45</h3>
+                    <h5>usuarios</h5>
+                </div>
+                <div class="AdminPrinInfoItem">
+                    <h3>150</h3>
+                    <h5>articulos</h5>
+                </div>
+                <div class="AdminPrinInfoItem">
+                    <h3>3</h3>
+                    <h5>categorias</h5>
+                </div>
+                <div class="AdminPrinInfoItem">
+                    <h3>2</h3>
+                    <h5>promos</h5>
+                </div> -->
+            </div>
+        </section>
+    </div>
+    <script type="text/javascript">
+        let grafica = document.getElementById("InfoAdminPrin").getContext("2d");
+        let miModifica = new Chart(grafica,{
+            type: "bar",
+            data:{
+                labels:['Ene','Feb','Mar','Abr','May','Jun','Jul','Ago','Sep','Oct','Nov','Dic'],
+                datasets: [
+                    {
+                        label:"Ganancias",
+                        data: [10000,5000,9000,12000,7000,13000,1000,20000,15000,14000,-5000,25000],
+                        backgroundColor:['#CEE5D0','#FF7878'],
+                        borderColor: ['#000']
+                    }]
+            }
+        })
+    </script>
+<%- include("../partials/footerAdmin.ejs") %>

@@ -1,0 +1,88 @@
+.detailregister{
+    background: #F3F0D7;
+    width: 80%;
+    padding-bottom: 5%;
+    margin: 0 auto 100px auto;
+    border:1px solid #000;
+    border-radius: 5px;
+}
+.contRegist{
+    display: grid;
+    grid-template-columns: repeat(5, 1fr);
+    grid-template-rows: repeat(5, 1fr);
+    grid-column-gap: 5px;
+    grid-row-gap: 5px;
+}
+.contRegisTitu{
+    width: 90%;
+    display: flex;
+    align-items: end;
+    justify-content: center;
+    margin: 20px auto 0 auto;
+    flex-wrap: wrap;
+}
+.contRegisTitu > h3{
+    font-size: 2rem;
+    margin: 0;
+}
+.contRegisTitu > div > img{
+    width: 100%;
+    margin-bottom: -20px;
+    position: relative;
+}
+.contRegisTitu > div{
+    width: 20vw;
+}
+.contRE { grid-area: 2 / 1 / 6 / 6; }
+.registerForm{
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    padding-top: 10px;
+}
+
+.registerForm > input{
+    width: 50%;
+    padding: 10px 5px;
+    margin: 5px 0;
+}
+
+.registerForm > input[type="submit"]{
+    background: #CEE5D0;
+    border: 1px solid #c7c7c7;
+    border-radius: 12px;
+    width: 30%;
+    font-weight:bold;
+    margin-top: 5%;
+}
+.registerForm>input[type="submit"]:hover{
+    background-color: #b0c5b1;
+    transition-duration: 0.2s;
+}
+.registerForm a{
+    font-weight: bold;
+    text-decoration: none;
+    color: #FF7878;
+    font-size: 1.2rem;
+}
+.registerFormPregunta{
+    font-size: 1.2rem;
+    padding: 15px;
+}
+@media only screen and (min-width: 768px){
+    .contRegisTitu{
+        justify-content: space-evenly;
+    }
+    .contRegisTitu > div{
+        width: 100px;
+    }
+    .contRegisTitu > h3{
+        font-size: 3rem;
+    }
+}
+@media only screen and (min-width: 1024px){
+    .detailregister{
+        width: 50%;
+    }
+}

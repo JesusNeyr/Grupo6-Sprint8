@@ -1,0 +1,56 @@
+<%- include("../../partials/head",{title:"Stock"})  %> 
+</head>
+<body>
+    <div class="contAdminMain">
+        <%- include("../../partials/admHeader")  %> 
+        <section class="contAdminPrin">
+            <div class="contStockAdmin">
+                <h1>Control de stock</h1>
+                <div class="stockAdminItem">
+                    <h4>Articulos disponibles</h4>
+                    <form class="stockAdminItemFilter">
+                        <label for="filtroAdminStock">Filtrar articulos</label>
+                        <input name="filtroAdminStock" type="search">
+                        <label for="filtroAdminStock">Filtrar categoria</label>
+                        <select name="" id="">
+                            <option value="">Cat 1</option>
+                            <option value="">Cat 2</option>
+                            <option value="">Cat 3</option>
+                            <option value="">Cat 4</option>
+                            <option value="">Cat 5</option>
+                        </select>
+                    </form>
+                    <article class="stockAdminArticle">
+                        <p>Articulo: Tren de Juguete</p>
+                        <p>Precio: $5000</p>
+                        <p>Unidades: 1000</p>
+                    </article>
+                    <article class="stockAdminArticle">
+                        <p>Articulo: Tren de Juguete</p>
+                        <p>Precio: $5000</p>
+                        <p>Unidades: 1000</p>
+                    </article>
+                    <article class="stockAdminArticle">
+                        <p>Articulo: Tren de Juguete</p>
+                        <p>Precio: $5000</p>
+                        <p>Unidades: 1000</p>
+                    </article>
+                    <article class="stockAdminArticle">
+                        <p>Articulo: Tren de Juguete</p>
+                        <p>Precio: $5000</p>
+                        <p>Unidades: 1000</p>
+                    </article>
+                </div>
+                <div class="stockAdminItem">
+                    <h4>Entradas</h4>
+                    <article class="stockAdminArticle">
+                        <p>Articulo: Tren de Juguete</p>
+                        <p>Precio: $5000</p>
+                        <p>Unidades: 1000</p>
+                        <p>Ingreso: 2-12-2021</p>
+                    </article>
+                </div>
+            </div>
+        </section>
+    </div>
+<%- include("../../partials/footerAdmin.ejs") %> 

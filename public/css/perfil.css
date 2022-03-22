@@ -1,0 +1,147 @@
+.seccion-usuario{
+    display: flex;
+    flex-direction: column;
+    margin-top:100px;
+    align-items: center;
+}
+.seccion-usuario_perfil{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    margin:10px;
+    flex-wrap: wrap;
+    background: #F3F0D7;
+    
+}
+.img-producto > img{
+    width:200px;
+    height: 200px;
+    margin: 5px 10px;
+    padding: 10px;
+}
+.mailName,.estrella{
+    min-width: 80px;
+    display: flex;
+    flex-direction: column;
+    align-items:flex-start;
+    margin-top: 10px;
+}
+.mailName>p{
+    margin-top:10px;
+}
+.contenedor-img_usuario{
+    background-color: #fff;
+    border: 1px solid #ccc;
+    width: 200px;
+    line-height: 0;
+    border-radius: 5px;
+}
+.contenedor-img_usuario > img{
+    max-width: 100%;
+    border-radius: 5px;
+}
+.seccion-usuario_perfil > div{
+    margin: 15px 10px;
+}
+.compras{
+    display: flex;
+    flex-direction: column;
+    background-color: #fff;
+    border:1px solid black;
+}
+.description > h3{
+    margin:10px 20px;
+    color:red;
+}
+.seccion-usuario_perfil-compras{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    margin:10px;
+    flex-wrap: wrap;
+}
+.seccion-usuario_perfil-compras>div{
+    margin-top:10px;
+}
+.compras-usuario>h2{
+    text-align: center;
+}
+.estrella{
+    display: flex;
+    flex-direction: column;
+    margin-top: 15px;
+    
+}
+.estrella >.start-widget input{
+    display:none;
+}
+.start-widget{
+    margin-top: 10px;
+    font-size: 30px;
+    color: #444;
+    /* padding: 10px; */
+    float:right;
+    transition: all .2s ease;
+}
+.start-widget>label:hover{
+    color: #fd4;
+    text-shadow: 0 0 20px #952;
+}
+.profileEditCont{
+    background: #F3F0D7;
+    border: 5px solid #FF7878;
+    display: flex;
+    border-radius: 5px;
+    margin-top: 50px;
+}
+.profileEditCont > img{
+    background: #fff;
+    max-width: 200px;
+    height: 200px;
+    background: red;
+    object-fit: cover;
+}
+.formProfileEdit > label{
+    display: flex;
+    justify-content: space-between;
+    border-bottom: 1px solid #FF7878;
+    padding: 5px;
+}
+.profileEditCont > div{
+    background: #F3F0D7;
+    color: #FF7878;
+    width: 100%;
+    padding-left: 10px;
+}
+.profileEditCont > div:last-child{
+    border-left: 2px solid #F3F0D7;
+}
+@media only screen and (min-width: 768px){
+    .seccion-usuario_perfil-compras{
+        display: flex;
+        flex-direction: row;
+        justify-content: space-evenly;
+        margin:10px;
+        flex-wrap: nowrap;
+        width: 100%;
+    }
+    .contenedor-datos-usuario{
+        display: flex;
+        justify-content: space-evenly;
+        margin:10px;
+        flex-wrap: wrap;
+    }
+    .contenedor-datos-usuario>div{
+        margin: 0px 10px;
+    }
+    .mailName,.estrella{
+        min-width: 80px;
+        display: flex;
+        flex-direction: column;
+        align-items:flex-start;
+        justify-content:space-evenly;
+        margin-top: 10px;
+    } 
+}
+@media only screen and (min-width: 1024px){
+}

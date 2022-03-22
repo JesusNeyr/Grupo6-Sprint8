@@ -1,0 +1,298 @@
+@import url('https://fonts.googleapis.com/css2?family=Roboto:ital,wght@0,100;0,300;0,400;0,500;0,700;0,900;1,100;1,300;1,400;1,500;1,700;1,900&display=swap');
+*{
+    box-sizing: border-box;
+}
+body{
+    background: url('../img/fondo-oso.jpg');
+    background-size: 10em;
+    font-family: 'Roboto', sans-serif;
+    margin: 0;
+    display: flex;
+    flex-direction: column;
+    min-height: 100vh;
+}
+.header{
+    background: #F3F0D7;
+    width: 100%;
+    height: 80px;
+    border-bottom: 1px solid #333;
+    padding: 5px;
+    display: flex;
+    justify-content: space-evenly;
+    position: sticky;
+    top: 0;
+    z-index: 100;
+}
+.menuHeader{
+    position: absolute;
+    width: 100%;
+}
+.logoHeader > a > img{
+    height: 70px;
+}
+.searchHeader{
+    display: flex;
+    align-items: center;
+}
+.searchFormHeader{
+    display: flex;
+    justify-content: center;
+}
+.searchFormHeader > input{
+    width: 70%;
+    padding: 10px 5px;
+    margin: 0;
+    border-radius: 5px 0 0 5px;
+    border: none;
+    outline: none;
+}
+.searchFormHeader > button{
+    border: none;
+    background: #fff;
+    border-radius: 0 5px 5px 0;
+}
+.menuBurger{
+    display: flex;
+    align-items: center;
+    padding-left: 10px;
+}
+.menuBurger > i{
+    font-size: 2rem;
+    padding: 3px;
+}
+.menuHeader > ul{
+    background: #F3F0D7;
+    height: 100vh;
+    list-style: none;
+    margin: 0;
+    padding: 0;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+}
+.menuHeader > ul > li{
+    width: 100%;
+    text-align: center;
+    font-size: 2.3rem;
+    padding: 10px 0;
+}
+/*footer*/
+.footer{
+    width: 100%;
+    background: #F3F0D7;
+    padding: 10px 0;
+    border-top: 1px solid #000;
+    margin-top: 100px;
+}
+.footer > p{
+    text-align: center;
+    margin: 20px 0 0 0;
+    font-size: 10px;
+}
+.footer > div h4{
+    font-size: 1.2rem;
+    margin: 10px 0;
+    padding-left: 10px;
+}
+.tarjetas{
+    list-style: none;
+    padding: 0;
+    margin: 0;
+    display: flex;
+    flex-wrap: wrap;
+    width: 70%;
+}
+.tarjetas > li{
+    width: 50px;
+    margin: 5px;
+}
+.tarjetas > li > img{
+    width: 100%;
+}
+.infoListFooter{
+    list-style: none;
+    margin: 0;
+    padding: 0 2%;
+}
+.infoListFooter > li{
+    font-weight: bold;
+    padding: 5px 0;
+}
+.redesFooter > h4{
+    margin: 10px 1px
+}
+.redesListFooter{
+    min-height: 60px;
+}
+.redesListFooter > li{
+    float: left;
+    font-size: 2.5rem;
+    margin: 5px;
+}
+.menuHeader a{
+    color: black;
+    text-decoration: none;
+}
+.contGeneral{
+    width: 90%;
+    margin: auto;
+}
+.tabletHeader{
+    display: none;
+}
+.ocultarMenu{
+    clip-path: polygon(0 0, 100% 0, 100% 0, 0 0);
+    transition: all ease 1s;
+}
+.mostrarMenu{
+    clip-path: polygon(0 0, 100% 0, 100% 100%, 0 100%);
+}
+.errForm{
+    color: red;
+    margin: 0;
+    font-size: 0.9rem;
+}
+.isInvalid{
+    color: red;
+    border: 1px solid red;
+    box-shadow: 0 0 10px red;
+}
+.isValid{
+    border: 1px solid green;
+    box-shadow: 0 0 10px green;
+}
+.contInstall{
+    background: #F3F0D7;
+    width: 50%;
+    margin: auto;
+    border: 1px solid #000;
+    padding: 10px;
+    margin-top: 10px;
+}
+@media only screen and (min-width: 768px){
+    /*header*/
+    .searchFormHeader > input{
+        width: 100%;
+    }
+    .searchFormHeader{
+        width: 70%;
+    }
+    .searchHeader{
+        width: 60%;
+        justify-content: center;
+    }
+    /*HOME INICIO*/
+    /*HOME FIN*/
+    /******** REGISTRO SECCION INICIO ********/
+    /******** REGISTRO SECCION FIN ********/
+    /******** ADMIN SECCION INICIO ********/
+    /******** ADMIN SECCION FIN ********/
+    /******** ADMIN SECCION LIST PRODUCT INICIO ********/
+    .gridProductOcultoMobile{
+        display: block;
+    }
+    .gridListProductAdmin > div{
+        grid-template-columns: 3rem repeat(3,1fr) 4rem;
+    }
+    .gridListProductAdminItem > div > i{
+        padding: 5px;
+    }
+    /******** ADMIN SECCION LIST PRODUCT FIN ********/
+    /******** SOMOS INICIO ********/
+    /******** SOMOS FIN ********/
+    /******COMIENZA SECCION DE LOGIN********/
+    /*****FIN DE SECCION LOGIN***/
+    /***INCIO DE RECUPERAR CONTRASEÑA*/
+    
+    /*FIN DE RECUPERAR CONTRASEÑA*/
+    /* CSS de perfil de usuario incia */
+    /* ^Finalizo CSS de Perfil de usuario ^ */
+    /* Inicia productDetail css */
+    /* Finaliza productDetail css */
+
+    /* Inicia productos css */
+    
+    /* Finaliza productos css */
+
+    /*footer*/
+    .footer{
+        display: flex;
+        flex-wrap: wrap;
+        justify-content: center;
+        align-items: center;
+    }
+    .contGrid {
+        display: grid;
+        grid-template-columns: repeat(3, 1fr);
+        grid-column-gap: 0px;
+        grid-row-gap: 0px;
+    }      
+    .pagosEnvios { grid-area: 1 / 1 / 6 / 2; }
+    .contactoFooter { grid-area: 1 / 2 / 6 / 3; }
+    .redesFooter { grid-area: 1 / 3 / 6 / 4; }  
+}
+@media only screen and (min-width: 1024px){
+    .header{
+        align-items: center;
+    }
+    .menuHeader{
+        clip-path: polygon(0 0, 100% 0, 100% 100%, 0 100%);
+        margin-left: 5%;
+        transition: none;
+        position: static;
+    }
+    .cerrarMenu{ display: none;}
+    .menuHeader > ul{
+        background: transparent;
+        width: auto;
+        height: auto;
+        display: flex;
+        font-weight: bold;
+        flex-direction: row;
+    }
+    .menuHeader > ul > li{
+        width: auto;
+        font-size: 1rem;
+        padding: 5px 10px;
+    }
+    .menuBurger{
+        display: none;
+    }
+    .searchHeader{
+        width: 30%;
+    }
+    /*HOME QUERY*/
+    /*FIN HOME QUERY*/
+    /******** REGISTRO SECCION FIN ********/
+    /******** REGISTRO SECCION INICIO ********/
+    /****LOGIN SECCION****/
+    /**FIN SECCION DELOGIN**/
+    /**INICIO PAGE CONTACT**/
+    /**FIN PAGE CONTACT**/
+    /* Inicia ProductDetail css */
+    /*producto*/
+/* Finaliza productDetail.css */
+/* Inicia productos css */
+    /*footer*/
+    .contGrid{
+        grid-template-columns: repeat(2, 1fr);
+    }
+    .specsInfo{
+        border-left: 1px solid #FF7878;
+        padding-left: 10px;
+    }
+    .footer{
+        flex-direction: column;
+    }
+    .footer > div h4{
+        font-size: 1rem;
+    }
+    .tarjetas > li{
+        width: 30px;
+    }
+    .redesListFooter > li{
+        font-size: 1.5rem;
+    }
+
+}

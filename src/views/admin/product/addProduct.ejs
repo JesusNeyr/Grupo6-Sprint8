@@ -1,0 +1,58 @@
+<%- include("../../partials/head.ejs",{title:"Añadir producto"}) %>
+</head>
+<body>
+        <%- include("../../partials/menuHeader.ejs") %>
+            <div class="contGeneral contAdd">
+                <form class="adminAddProductForm" action="/products" method="post" enctype="multipart/form-data">
+                    <h3>Agregar nuevo producto</h3>
+                    <input placeholder="Nombre del producto" name="name" id="nameProduct" type="text" required>
+                    <div class="div-error errorAddTitle"></div>
+                    <input placeholder="Precio individual" type="number" id="priceInvProduct" name="price_inv" required>
+                    <div class="div-error errorAddPriceInv"></div>
+                    <input placeholder="Precio mayorista" type="number" id="priceWhoProduct" name="price_who" required>
+                    <div class="div-error errorAddPriceWho"></div>
+                    <input placeholder="Stock" type="number" id="stockProduct" name="stock" required>
+                    <div class="div-error errorAddStock"></div>
+                    <input placeholder="Stock minimo" type="number" id="stockMinProduct" name="stock_min" required>
+                    <div class="div-error errorAddStockMin"></div>
+                    <input placeholder="Stock maximo" type="number" id="stockMaxProduct" name="stock_max" required>
+                    <div class="div-error errorAddStockMax"></div>
+                    <select name="category" id="categoryProduct" required>
+                        <option value="">Seleccionar una categoría</option>
+                        <% for( let i = 0; i < category.length; i++ ) { %>
+                            <option value="<%= category[i].id %>"><%= category[i].name %></option>
+                        <% } %>
+                    </select>
+                    <div class="div-error errorAddCategory"></div>
+                    <select name="size" id="sizeProduct" required>
+                        <option value="">Seleccionar un tamaño</option>
+                        <% for( let i = 0; i < size.length; i++ ) { %>
+                            <option value="<%= size[i].id %>"><%= size[i].size %></option>
+                        <% } %>
+                    </select>
+                    <div class="div-error errorAddSize"></div>
+                    <select name="discount" id="discountProduct" required>
+                        <option value="">Seleccione un Descuento</option>
+                        <% for( let i = 0; i < discount.length; i++ ) { %>
+                            <option value="<%= discount[i].id %>"><%= discount[i].discount %>%</option>
+                        <% } %>
+                    </select>
+                    <div class="div-error errorAddDiscount"></div>
+                    <select name="visibility" id="visibilityProduct" required>
+                        <option value="">Seleccione una opcion</option>
+                        <option value="1">Visible</option>
+                        <option value="0">No visible</option>
+                    </select>
+                    <div class="div-error errorAddVisibility"></div>
+                    <div>
+                        <label for="">Subir imagen</label>
+                        <input type="file" name="img" accept=".jpg, .jpeg, .png, .gif" id="" required>
+                    </div>
+                    <textarea placeholder="Descripcion" name="description" id="descriptionProduct" cols="30" rows="10" required></textarea>
+                    <div class="div-error errorAddDescription"></div>
+                    <input type="submit" name="" id="buttonSubmit" value="Crear Producto">
+                </form>
+            </div>
+        </section>
+<script src="/js/validation/productCreate.js"></script>
+<%- include("../../partials/footerBase.ejs") %>

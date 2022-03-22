@@ -1,0 +1,7 @@
+- menu al buscar * listo
+- añadir precio con (descuento si lo tuviese) en carrito * listo
+- quitar del carrito desde vista (posiblement) *listo 
+- productos relacionados en detalle de productos
+- añadir agregar carrito en productos general
+- darle funcionalidad a ordenar por
+- crud de tablas secundarias

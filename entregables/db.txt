@@ -1,0 +1,111 @@
+products *
+--------
+id
+name
+price_inv
+price_who
+stock
+stock_min
+stock_max
+cat_id
+sizes_id
+discount_id
+description
+visibility
+-----------------------------------------------------------------------------------------------
+image *
+-----
+id - int PK
+image - varchar
+id_product - int FK
+
+------------------------------------------------------------------------------------------------
+
+visited*
+----------
+id - int PK
+visited - int
+id_products - int
+id_user - int
+time - DATE
+
+------------------------------------------------------------------------------------------------
+cat *
+---
+id - int PK
+name - varchar
+
+------------------------------------------------------------------------------------------------
+sizes *
+----
+id - int PK
+size - varchar
+------------------------------------------------------------------------------------------------
+discount *
+--------
+id - int PK
+discount - int
+------------------------------------------------------------------------------------------------
+user *
+---
+id - int PK
+first_name - varchar
+last_name - varchar
+email - varchar
+pass - varchar
+avatar_id - int
+rol_id - int
+-----------------------------------------------------------------------------------------------
+addresses *
+--------
+id - int PK
+province - varchar
+city - varchar
+street - varchar
+number - int
+phone - int
+cp - int
+floor - int
+id_user - int
+------------------------------------------------------------------------------------------------
+avatar *
+------
+id - int PK
+avatar - varchar
+-----------------------------------------------------------------------------------------------
+order
+-----
+id - int PK
+number - int //?
+date - date
+total - int
+payments_id
+user_id
+user_addresses_id 
+status_id
+------------------------------------------------------------------------------------------------
+status
+-------
+id
+status
+------------------------------------------------------------------------------------------------
+shippings
+---------
+id
+street
+number
+price
+order_id
+order_payments_id
+location
+floor
+cp
+phone
+------------------------------------------------------------------------------------------------
+orderDetail
+-----------
+id
+quantity
+subtotal
+order_id
+products_id

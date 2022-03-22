@@ -1,0 +1,4 @@
+/Node_Modules/
+.env
+.env_local
+.env_nube

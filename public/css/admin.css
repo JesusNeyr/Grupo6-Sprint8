@@ -1,0 +1,186 @@
+.adminHeader{
+    background: #F3F0D7;
+    width: 100px;
+    min-height: 100vh;
+    border-right: 1px solid #000;
+    padding: 5px;
+    display: flex;
+    flex-wrap: wrap;
+    flex-direction: column;
+}
+.adminHeader > h1{
+    margin: 0;
+    font-size: 1.5rem;
+    text-align: center;
+}
+.adminMenuH{
+    list-style: none;
+    margin: 0;
+    padding: 0;
+}
+.adminMenuH > li{
+    text-align: center;
+    background: #FF7878;
+    margin-top: 5px;
+    padding: 10px 0;
+    border-radius: 5px;
+}
+.adminMenuH > li > a{
+    text-decoration: none;
+    color: #000;
+}
+.contAdminMain{
+    display: flex;
+}
+.contAdminPrin{
+    padding: 10px;
+    background: #F3F0D7;
+    border: 1px solid #000;
+    margin-left: 5px;
+}
+.contAdminMain > section{
+    width: 100%;
+}
+.AdminPrinInfo{
+    background: rebeccapurple;
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+}
+.AdminPrinInfoItem{
+    background: rgb(206, 42, 119);
+    width: 120px;
+    height: 120px;
+    margin: 5px;
+    display: flex;
+    justify-content: center;
+    flex-wrap: inherit;
+    flex-direction: column;
+}
+.AdminPrinInfoItem h3, .AdminPrinInfoItem h5{
+    width: 100%;
+    font-size: 1.5rem;
+    margin: 0;
+    background: chocolate;
+    text-align: center;
+}
+.contStockAdmin > h1{
+    margin: 0;
+    border-bottom: 10px solid #FF7878;
+}
+.stockAdminItem > h4{
+    margin: 5px 0;
+    border-bottom: 1px solid #c7c7c7;
+    background: #dad6b9;
+    padding: 10px;
+}
+.stockAdminItemFilter{
+    border-bottom: 1px solid #c7c7c7;
+    padding: 10px;
+}
+.stockAdminItemFilter > input{
+    border: 1px solid #c7c7c7;
+    outline: none;
+}
+.stockAdminArticle{
+    background: #CEE5D0;
+    display: flex;
+    flex-wrap: wrap;
+    margin-top: 5px;
+    border: 1px solid #909090;
+}
+.stockAdminArticle > p{
+    border-bottom: 1px solid #909090;
+    margin-top: 3px;
+    width: 100%;
+    padding: 5px;
+}
+.gridProductOcultoMobile{
+    display: none;
+}
+.gridListProductAdminHead{
+    background: #FF7878;
+    padding: 5px;
+}
+.gridListProductAdmin > div{
+    display: grid;
+    grid-template-columns: 1rem repeat(1,2fr) 3rem;
+}
+.gridListProductAdmin > div > div{
+    text-align: center;
+}
+.gridListProductAdminItem >div {
+    padding: 10px;
+}
+.gridListProductAdminItem > div:nth-child(1), .gridListProductAdminItem > div:nth-child(5){
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border-left: 1px solid #515151;
+    border-right: 1px solid #515151;
+    padding: 10px;
+}
+.gridListProductAdminItem:nth-child(odd){
+    background: #FF7878;
+}
+.changeProduct1{
+    display: flex;
+}
+.changeProduct2{
+    padding: 20px;
+    background: #F3F0D7;
+    border: 1px solid #000;
+    margin: 5px;
+    width: 100%;
+}
+.changeProduct2 > form{
+    display: flex;
+    justify-content: space-around;
+}
+.form-changeProduct{
+    display: flex;
+    margin: 20px;
+    flex-direction: column;
+}
+.form-changeProduct > label{
+    margin-bottom: 5px;
+    font-weight: bold;
+    font-size: 18px;
+    display: block;
+}
+.form-changeProduct > input{
+    width: 60%;
+    padding: 8px;
+    border-radius: 10px;
+    margin-bottom: 10px;
+    border: solid 1px #E0C097;
+}
+.form-changeProduct > input[type="file"]{
+    width:auto;
+    border: none;
+}
+.changeProductFile{
+    width: 50;
+}
+.changeProductButtons{
+    width: 50%;
+    margin-left: 50px;
+}
+.changeProductButtons > button{
+    padding: 8px;
+    width: auto;
+    border: none;
+    background: #FF7878;
+    border-radius: 5px;
+}
+@media only screen and (min-width: 768px){
+    .AdminPrinInfo{
+        justify-content: center;
+    }
+    .stockAdminArticle > p{
+        width: auto;
+        border-left: 3px solid #909090;
+    }
+}
+@media only screen and (min-width: 1024px){
+}

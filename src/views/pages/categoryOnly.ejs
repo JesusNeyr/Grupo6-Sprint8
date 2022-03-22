@@ -1,0 +1,39 @@
+<%- include ('../partials/head',{title:"Productos"}) %>
+<%- include('../partials/menuHeader')  %>
+<%- include('../partials/filterCategory')  %>
+        <article class="products-lista-articulos">
+            <% console.log("response trae "+response) %> 
+            <% if(response == false ){ %>
+                <h2 class="searchNull">No se encontraron resultados</h2>
+            <% } %>  
+            <% db.forEach(element => { %>   
+                <div class="products-lista-articulos-contenedor_producto">
+                        <a href="/products/detail/<%= element.id %>">
+                        <% for(let i = 0; i<element.images.length;i++){ %>
+                            <img src="/img/products/<%= element.images[i].image %> " alt="articulox">
+                        <% } %> 
+                        <div class="contenedor-producto-info">
+                            <p><%= element.name %> </p>
+                            <% if(access == 3 || !access){ %> 
+                                <p>$<%= element.price_inv %> </p>
+                            <% } %> 
+                            <% if(access == 2){ %> 
+                                <p>$<%= element.price_who %> </p>
+                            <% } %> 
+                            <% if(access == 1){ %> 
+                                <p>Individual $<%= element.price_who %> </p>
+                                <p>Mayorista $<%= element.price_inv %> </p>
+                            <% } %> 
+                        </div>
+                        <% if (element.offPorcen) { %>
+                            <div class="contenedor-producto-cuota">
+                                <p>Hasta <%=element.offPorcen%>% de descuento  </p>
+                            </div>
+                            <% } else {} %> 
+                            
+                        </a>
+                        </div>
+            <% }) %>
+        </article>
+    </section>
+<%- include('../partials/footerBase')  %> 

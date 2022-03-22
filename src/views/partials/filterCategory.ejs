@@ -1,0 +1,40 @@
+<section class="filter-products-desktop">
+    <div class="ordenar-productos-container">
+        <div class="ordenar-products">
+            <label for="ordenar-productos-lista">Ordenar por:</label>
+            <select name="lista-opciones-prductos" id="li-products">
+                <option value="destacado">Destacados</option>
+                <option value="menorMayor">Precio: Menor a Mayor</option>
+                <option value="mayorMenor">Pecio: Mayor a Menor</option>
+                <option value="vendidos">Mas vendidos</option>
+            </select>
+        </div>
+    </div>
+</section>
+<section class="filter-products">
+    <div class="ordenar-productos-container">
+        <div class="ordenar-products">
+            <label for="ordenar-productos-lista">Ordenar por:</label>
+            <select name="lista-opciones-prductos" id="li-products">
+                <option value="destacado">Destacados</option>
+                <option value="menorMayor">Precio: Menor a Mayor</option>
+                <option value="mayorMenor">Pecio: Mayor a Menor</option>
+                <option value="vendidos">Mas vendidos</option>
+            </select>
+        </div>
+        <div class="filter-phone">
+            <h3><a href="#">Filtrar ></a></h3>
+        </div>   
+    </div>
+</section>
+<section class="products-lista">
+    <article class="products-lista-categorias-desktop">
+        <h2>Juguetes</h2>
+        <div class="contenedor-categorias-lista">
+            <ul>
+                <% for(let i = 0; i<category.length;i++){ %> 
+                    <li><a href="/category/<%= category[i].id %>/list"><%= category[i].name %> </a></li>
+                <% } %> 
+            </ul>
+        </div>
+    </article>

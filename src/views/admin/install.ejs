@@ -1,0 +1,146 @@
+<%- include("../partials/head",{title:"Home"})  %> 
+<%- include("../partials/menuHeader.ejs")  %>  
+    <% if (verification == 0) { %>
+    <section class="contInstall">
+        <h1>REGISTROS DE PRUEBA</h1>
+        <ul>
+            <li>
+                Cuentas
+                <ul>
+                    <li>Admin -> cuenta: admin@dh.com | contraseña: 11111</li>
+                </ul>
+                <ul>
+                    <li>Mayorista -> cuenta: mayorista@dh.com | contraseña: 11111</li>
+                </ul>
+                <ul>
+                    <li>Minorista -> cuenta: minorista@dh.com | contraseña: 11111</li>
+                </ul>
+            </li>
+        </ul>
+        <ul>
+            <li>Productos de prueba: 12</li>
+        </ul>
+        <ul>
+            <li>
+                Categorias
+                <ul>
+                    <li>De 0 a 24 meses</li>
+                    <li>De 2 a 3 años</li>
+                    <li>De 4 a 6 años</li>
+                </ul>
+            </li>
+        </ul>
+        <ul>
+            <li>
+                Tamaños
+                <ul>
+                    <li>Pequeño</li>
+                    <li>Mediano</li>
+                    <li>Grande</li>
+                </ul>
+            </li>
+        </ul>
+        <ul>
+            <li>
+                Descuentos
+                <ul>
+                    <li>0%</li>
+                    <li>5%</li>
+                    <li>10%</li>
+                    <li>15%</li>
+                    <li>20%</li>
+                </ul>
+            </li>
+        </ul>
+        <ul>
+            <li>
+                Avatar por defecto: 1 registro
+            </li>
+        </ul>
+        <ul>
+            <li>
+                Roles
+                <ul>
+                    <li>1 - ADMIN</li>
+                    <li>2 - MINORISTA</li>
+                    <li>3 - MAYORISTA</li>
+                </ul>
+            </li>
+        </ul>
+        <ul>
+            <li>
+                Pagos
+                <ul>
+                    <li>Efectivo</li>
+                    <li>Tarjeta</li>
+                    <li>Cheque</li>
+                </ul> 
+            </li>
+        </ul>
+        <ul>
+            <li>
+                Estado
+                <ul>
+                    <li>Pago</li>
+                    <li>Procesando</li>
+                    <li>Inpago</li>
+                </ul>
+            </li>
+        </ul>
+        <ul>
+            <li>
+                Código promocional
+                <ul>
+                    <li>CYBERGUGU - 10%</li>
+                    <li>DH - 100%</li>
+                </ul>
+            </li>
+        </ul>
+        <form action="/install" method="post">
+            <input type="submit" value="Instalar">
+        </form>
+    </section>
+    <% }else{ %>
+        <section class="contInstall">
+            <h1>La instalación fue completada</h1>
+            <ul>
+                <li>
+                    Cuentas
+                    <ul>
+                        <li>Admin -> cuenta: admin@dh.com | contraseña: 11111</li>
+                    </ul>
+                    <ul>
+                        <li>Mayorista -> cuenta: mayorista@dh.com | contraseña: 11111</li>
+                    </ul>
+                    <ul>
+                        <li>Minorista -> cuenta: minorista@dh.com | contraseña: 11111</li>
+                    </ul>
+                </li>
+            </ul>
+            <ul>
+                <li>
+                    Instrucciones para eliminar los archivos de instalacion
+                    <ul>
+                        <li>
+                            Abrir archivo pageRoutes.js y eliminar rutas
+                            <ul>
+                                <li>router.get('/install', controllerPages.install);</li>
+                                <li>router.post('/install', controllerPages.installProcess);</li>
+                            </ul>
+                        </li>
+                        <li>
+                            Eliminar archivo install.ejs ubicado en
+                            <ul><li>src/views/admin/install.ejs</li></ul>
+                        </li>
+                        <li>
+                            Abrir controllerPages.js
+                            <ul>
+                                <li>Eliminar propiedades install e installProcess</li>
+                            </ul>
+                        </li>
+                    </ul>
+                </li>
+            </ul>
+        </section>
+    <% } %> 
+<%- include("../partials/footerBase.ejs")  %>

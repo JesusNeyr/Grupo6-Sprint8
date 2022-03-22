@@ -1,0 +1,32 @@
+
+@media only screen and (min-width: 768px){
+    .forgetten1{
+        text-align: center;
+        margin-top: 100px;
+        padding: 20px;
+    }
+    .forPass{
+        width: 50%;
+        padding: 20px;
+        margin:auto;
+        margin-bottom: 100px;
+        background-color: rgba(240, 209, 170, 0.829);
+    }
+    .forPass h2{
+        font-size: 20px;
+        text-align: center;
+        padding: 20px 10px;
+    
+    }
+    .forgettInput input{
+        width: 50%;
+        border: none;
+        background: none;
+        border-bottom: solid  rgb(150, 113, 68) 1px;
+        padding: 15px;
+        outline: none;
+        margin-bottom: 20px;
+    }
+}
+@media only screen and (min-width: 1024px){
+}

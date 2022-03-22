@@ -1,0 +1,22 @@
+<%- include("../../partials/head.ejs",{title:"Home"})  %> 
+<%- include("../../partials/menuHeader.ejs")  %>  
+<section class="contGeneral">
+    <div class="listCategory">
+       <div class="gridContCategory">
+           <div class="gridTitleCategory">Listado de categorias <a class="addCategoryButton" href="/category/add">Agregar categoria</a></div>
+               <div>Nombre</div>
+               <div>Acciones</div>
+               <% for( let i = 0; i < result.length; i++ ) { %>             
+                    <div><a href="/category/<%= result[i].id %>/list"><%= result[i].name %></a></div>
+                    <div class="categoryAction">
+                        <a href="/category/<%= result[i].id %>/edit"><i class="fas fa-edit"></i></a> 
+                        | 
+                        <form action="" method="post">
+                            <button type="submit"><i class="fas fa-trash"></i></button>
+                        </form>
+                    </div>
+               <% } %>
+       </div> 
+    </div>
+</section>
+<%- include("../../partials/footerBase.ejs")  %>
