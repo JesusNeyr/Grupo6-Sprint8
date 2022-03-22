@@ -79,7 +79,6 @@ inputs.forEach((input)=>{
 registerForm.addEventListener('submit',(e)=>{
 
     if (campos.first_name && campos.last_name && campos.email) {
-        alert("todo correcto")
     }else{
         e.preventDefault();
     }

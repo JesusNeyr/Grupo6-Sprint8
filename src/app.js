@@ -42,15 +42,22 @@ const routerCategory = require('./routes/categoryRoutes');
 //router size
 const routerSize = require('./routes/sizeRoutes');
 //router cart
-const routerCart = require('./routes/cartRoutes')
+const routerCart = require('./routes/cartRoutes');
+//api
+const routerApiUser = require('./routes/api/apiRoutesUser')
+const routerApiProduct = require('./routes/api/apiRoutesProduct')
+
 app.use('/',routerPages);
 app.use('/perfil',routerPerfil);
 app.use('/admin',routerAdmin);
-app.use('/products',routerProducts)
-app.use('/category',routerCategory)
-app.use('/size',routerSize)
-app.use('/carrito',routerCart)
+app.use('/products',routerProducts);
+app.use('/category',routerCategory);
+app.use('/size',routerSize);
+app.use('/carrito',routerCart);
 
+//apis
+app.use('/api/users',routerApiUser)
+app.use('/api/products',routerApiProduct)
 
 
 app.listen(process.env.PORT || 3000, () => console.log('servidor funcionando'));
