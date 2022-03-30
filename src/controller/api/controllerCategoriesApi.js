@@ -33,6 +33,8 @@ const controllerApiCategories = {
                 association:'images'
             }],
         });
+        let catConsult = await Cat.findAll({include:'products'})
+
         let response ={
             meta:{
                 status: 200,
@@ -40,34 +42,16 @@ const controllerApiCategories = {
                 url: 'api/categories/products'
             },
             count: productConsult.length,
-            products: {
-                data: [
-                    {
-                        category: 1,
-                        products: 20
-                    },
-                    {
-                        category: 3,
-                        products: 80
-                    },
-                    {
-                        category: 2,
-                        products: 15
-                    },
-                ]
+            productsCat: {
+                data: []
             }
         }
-        for(let i =0; i<productConsult.length;i++){
-            if(productConsult[i].catId == i){
-                console.log(`Categoria id: ${productConsult[i].catId} en ${i}`);
-            }
-        }
-        // productConsult.forEach(product =>{
-        //     response.products.data.push({
-        //         category: product.cats.name,
-        //         // productsCount: product
-        //     })
-        // })
+        catConsult.forEach(productCat =>{
+            response.productsCat.data.push({
+                category: productCat.name,
+                productsCount: productCat.products.length
+            })
+        })
         return res.json(response)
     },
     count: async(req,res)=>{
