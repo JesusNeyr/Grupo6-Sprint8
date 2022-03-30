@@ -46,6 +46,7 @@ const routerCart = require('./routes/cartRoutes');
 //api
 const routerApiUser = require('./routes/api/apiRoutesUser')
 const routerApiProduct = require('./routes/api/apiRoutesProduct')
+const routerApiCategories = require('./routes/api/apiRoutesCategories')
 
 app.use('/',routerPages);
 app.use('/perfil',routerPerfil);
@@ -58,6 +59,7 @@ app.use('/carrito',routerCart);
 //apis
 app.use('/api/users',routerApiUser)
 app.use('/api/products',routerApiProduct)
+app.use('/api/categories',routerApiCategories)
 
 
 app.listen(process.env.PORT || 3030, () => console.log('servidor funcionando'));

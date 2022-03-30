@@ -6,7 +6,7 @@ const db = require('../../database/models');
 const Product = db.Product;
 const controllerApiProduct = {
     index: async(req,res) =>{
-        let productConsult = await Product.findAll({include:['cats','sizes','discounts']});
+        let productConsult = await Product.findAll({include:['cats','sizes','discounts',{association: 'images'}]});
         let response ={
             meta:{
                 status: 200,
@@ -28,11 +28,13 @@ const controllerApiProduct = {
                 stock_min:product.stock_min,
                 stock_max:product.stock_max,
                 category: product.cats.name,
+                categoryId: product.cat_id,
                 size: product.sizes.size,
                 discount: product.discounts.discount,
                 description: product.description,
                 visibility: product.visibility,
                 detail: `api/products/${product.id}/detail`,
+                image: `http://${req.headers.host}/img/products/${product.images[0].image}`
             }) 
             return product
         });
@@ -79,11 +81,11 @@ const controllerApiProduct = {
             meta: {
                 status: 200,
                 total: productConsult.length,
-                url: 'api/users/count'
+                url: 'api/products/count'
             },
             data: {productConsult}
         }
-        res.json(`El total de usuario es ${response.meta.total}`)
+        res.json(`El total de productos es ${response.meta.total}`)
     }
 }
 
