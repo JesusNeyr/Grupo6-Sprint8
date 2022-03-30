@@ -7,7 +7,6 @@ const User = db.User;
 
 const controllerApiUser = {
     index: async(req,res) =>{
-        if ( !req.query.pages ) {
         let userConsult = await User.findAll({attributes: ['id','first_name','last_name','email','avatar_id']});
         let response ={
             meta:{
@@ -32,9 +31,6 @@ const controllerApiUser = {
             return user
         });
         return res.json(response)
-        }else{
-            pagination(req,res)
-        }
     },
     detail: async(req,res)=>{
         let id = req.params.id;

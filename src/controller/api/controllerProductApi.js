@@ -1,15 +1,9 @@
 const path = require('path');
 const db = require('../../database/models');
-const sequelize = db.sequelize;
-const { Op } = require("sequelize");
-//const moment = require('moment');
+//const sequelize = db.sequelize;
+//const { Op } = require("sequelize");
 
-
-//Aqui tienen otra forma de llamar a cada uno de los modelos
 const Product = db.Product;
-//---------------------------
-//Dentro del actorsAPIController uso las dos forma de poder llamar a nuestros modelo
-//----------------------------------
 const controllerApiProduct = {
     index: async(req,res) =>{
         let productConsult = await Product.findAll({include:['cats','sizes','discounts']});
@@ -17,7 +11,7 @@ const controllerApiProduct = {
             meta:{
                 status: 200,
                 total: productConsult.length,
-                url: 'api/products'
+                url: 'api/products',
             },
             count: productConsult.length,
             products: {

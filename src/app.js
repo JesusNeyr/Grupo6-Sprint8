@@ -60,4 +60,4 @@ app.use('/api/users',routerApiUser)
 app.use('/api/products',routerApiProduct)
 
 
-app.listen(process.env.PORT || 3000, () => console.log('servidor funcionando'));
+app.listen(process.env.PORT || 3030, () => console.log('servidor funcionando'));
