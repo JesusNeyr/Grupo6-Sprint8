@@ -124,11 +124,11 @@ const controllerProduct={
                     user_id: req.session.user.id
                 }
             });
+            let orderConsult= await db.OrderDetail.findOne({where:{user_add_id:req.session.user.id,product_id:req.params.id}})
         }else{
             visitedConsult = "visited"
+            orderConsult = null
         }
-        
-        let orderConsult= await db.OrderDetail.findOne({where:{user_add_id:req.session.user.id,product_id:req.params.id}})
         let productConsult = await Product.findByPk(req.params.id,{
             include: ["images","sizes","cats"]
         });
