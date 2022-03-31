@@ -90,6 +90,23 @@ const controllerApiProduct = {
         }
         res.json(`El total de productos es ${response.meta.total}`)
     },
+    lastProduct: async(req,res)=>{
+        let productConsult = await Product.findAll({include:[{association: 'images'}]});
+        let lastProduct = productConsult.pop();
+        let response = {
+            meta: {
+                status: 200,
+                total: 1,
+                url: 'api/products/lastProduct'
+            },
+            data: {
+                id: lastProduct.id,
+                name: lastProduct.name,
+                imagen: `http://${req.headers.host}/img/products/${lastProduct.images[0].image}`
+            }
+        }
+        return res.json(response)
+    },
     createProduct: async(req,res)=>{
         let body = req.body;
         let productCreate = await Product.create({
@@ -106,7 +123,7 @@ const controllerApiProduct = {
             visibility: req.body.visibility
         })
         await Image.create({
-            image: "default.png",
+            image: "default.jpg",
             id_products: productCreate.id
         })
     }
