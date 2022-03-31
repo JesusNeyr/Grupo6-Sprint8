@@ -4,6 +4,8 @@ const db = require('../../database/models');
 //const { Op } = require("sequelize");
 
 const Product = db.Product;
+const Image = db.Image;
+
 const controllerApiProduct = {
     index: async(req,res) =>{
         let productConsult = await Product.findAll({include:['cats','sizes','discounts',{association: 'images'}]});
@@ -19,6 +21,7 @@ const controllerApiProduct = {
             }
         }
         productConsult.forEach(product => {
+            
             response.products.data.push({
                 id:product.id,
                 name:product.name,
@@ -86,6 +89,26 @@ const controllerApiProduct = {
             data: {productConsult}
         }
         res.json(`El total de productos es ${response.meta.total}`)
+    },
+    createProduct: async(req,res)=>{
+        let body = req.body;
+        let productCreate = await Product.create({
+            name: req.body.name,
+            price_inv: req.body.price_inv,
+            price_who: req.body.price_who,
+            stock: req.body.stock,
+            stock_min: req.body.stock_min,
+            stock_max: req.body.stock_max,
+            cat_id: req.body.category,
+            size_id: req.body.size,
+            discount_id: req.body.discount,
+            description: req.body.description,
+            visibility: req.body.visibility
+        })
+        await Image.create({
+            image: "default.png",
+            id_products: productCreate.id
+        })
     }
 }
 
