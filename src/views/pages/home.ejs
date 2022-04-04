@@ -75,9 +75,11 @@
                     <% } %> 
                    <% for( let i = 0; i < popularConsult.length; i++ ) { %>
                     <div>
+                        <a href="/products/detail/<%= popularConsult[i].products.id %>">
                         <div class="catImgHome">
-                            <img src="img/products/<%= popularConsult[i].products.images[0].image %>" alt="boligrafo Multicolor" class="imagenes-edades">
+                           <img src="img/products/<%= popularConsult[i].products.images[0].image %>" alt="boligrafo Multicolor" class="imagenes-edades">
                         </div>
+                        </a>
                         <h4><%= popularConsult[i].products.name %> </h4>
                         <% let claseTachado="tachadoPrice";  if(access == 3 || !access){ %> 
                             <p class="<%= popularConsult[i].products.discounts.discount > 0 ? claseTachado : null %>">$<%= popularConsult[i].products.price_inv %></p>

@@ -8,6 +8,7 @@ router.get('/:id/detail', controllerApiProduct.detail);
 router.get('/count', controllerApiProduct.count);
 router.get('/lastProduct', controllerApiProduct.lastProduct);
 router.post('/create', controllerApiProduct.createProduct);
-router.post('/edit/:id',multerMiddleware.single('image'), controllerApiProduct.updateProduct);
+router.post('/edit/:id', controllerApiProduct.updateProduct);
+router.delete('/delete/:id', controllerApiProduct.deleteProduct);
 
 module.exports = router;

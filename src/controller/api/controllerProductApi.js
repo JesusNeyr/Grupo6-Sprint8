@@ -160,6 +160,18 @@ const controllerApiProduct = {
                 //fs.unlinkSync(path.resolve(__dirname,`../../public/img/products/${imageUpdate.image}`))                
             }
         }
+    },
+    deleteProduct: (req,res)=>{
+        Image.destroy({
+            where:{
+                id_products: req.params.id
+            }
+        })
+        Product.destroy({
+            where: {
+                id: req.params.id
+            }
+        })
     }
 }
 
