@@ -103,7 +103,8 @@ const controllerApiProduct = {
             data: {
                 id: lastProduct.id,
                 name: lastProduct.name,
-                imagen: `http://${req.headers.host}/img/products/${lastProduct.images[0].image}`
+                imagen: `http://${req.headers.host}/img/products/${lastProduct.images[0].image}`,
+                url: `http://${req.headers.host}/products/detail/${lastProduct.id}/`
             }
         }
         return res.json(response)
