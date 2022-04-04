@@ -393,17 +393,17 @@ const controllerPages = {
         }])
         await db.Image.bulkCreate([
             {image: 'default.jpg',id_products: 1},
-            {image: 'default.jpg',id_products: 2},
-            {image: 'default.jpg',id_products: 3},
-            {image: 'default.jpg',id_products: 4},
-            {image: 'default.jpg',id_products: 5},
-            {image: 'default.jpg',id_products: 6},
-            {image: 'default.jpg',id_products: 7},
-            {image: 'default.jpg',id_products: 8},
-            {image: 'default.jpg',id_products: 9},
-            {image: 'default.jpg',id_products: 10},
-            {image: 'default.jpg',id_products: 11},
-            {image: 'default.jpg',id_products: 12},
+            {image: 'default1.jpg',id_products: 2},
+            {image: 'default2.jpg',id_products: 3},
+            {image: 'default3.jpg',id_products: 4},
+            {image: 'default4.jpg',id_products: 5},
+            {image: 'default5.jpg',id_products: 6},
+            {image: 'default6.jpg',id_products: 7},
+            {image: 'default7.jpg',id_products: 8},
+            {image: 'default8.jpg',id_products: 9},
+            {image: 'default9.jpg',id_products: 10},
+            {image: 'default10.jpg',id_products: 11},
+            {image: 'default11.jpg',id_products: 12},
         ])
         await db.Payment.bulkCreate([
             {name: "Efectivo"},
