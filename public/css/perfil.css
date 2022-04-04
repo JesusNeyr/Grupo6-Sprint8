@@ -11,20 +11,14 @@
     margin:10px;
     flex-wrap: wrap;
     background: #F3F0D7;
-    
+    border: 3px solid #ff7878;
+    border-radius: 5px;
 }
 .img-producto > img{
     width:200px;
     height: 200px;
     margin: 5px 10px;
     padding: 10px;
-}
-.mailName,.estrella{
-    min-width: 80px;
-    display: flex;
-    flex-direction: column;
-    align-items:flex-start;
-    margin-top: 10px;
 }
 .mailName>p{
     margin-top:10px;
@@ -39,6 +33,11 @@
 .contenedor-img_usuario > img{
     max-width: 100%;
     border-radius: 5px;
+    box-shadow: 0 0 10px #ff7878;
+}
+.contenedor-img_usuario:hover{
+    animation: rubberBand;
+    animation-duration: .8s;
 }
 .seccion-usuario_perfil > div{
     margin: 15px 10px;
@@ -66,40 +65,25 @@
 .compras-usuario>h2{
     text-align: center;
 }
-.estrella{
-    display: flex;
-    flex-direction: column;
-    margin-top: 15px;
-    
-}
-.estrella >.start-widget input{
-    display:none;
-}
-.start-widget{
-    margin-top: 10px;
-    font-size: 30px;
-    color: #444;
-    /* padding: 10px; */
-    float:right;
-    transition: all .2s ease;
-}
-.start-widget>label:hover{
-    color: #fd4;
-    text-shadow: 0 0 20px #952;
-}
 .profileEditCont{
     background: #F3F0D7;
     border: 5px solid #FF7878;
     display: flex;
     border-radius: 5px;
     margin-top: 50px;
+    flex-direction: column;
 }
 .profileEditCont > img{
-    background: #fff;
     max-width: 200px;
     height: 200px;
-    background: red;
     object-fit: cover;
+    margin: 10px auto;
+    border-radius: 50%;
+    border: 10px solid #ff7878;
+}
+.profileEditCont > img:hover{
+    animation: rubberBand;
+    animation-duration: .8s;
 }
 .formProfileEdit > label{
     display: flex;
@@ -107,15 +91,54 @@
     border-bottom: 1px solid #FF7878;
     padding: 5px;
 }
+.formProfileEdit > label > input, .formProfileEdit > label > select{
+    border: 2px solid #ff7878;
+    border-radius: 5px;
+    color: #ff7878;
+    padding: 5px;
+    background: #fff;
+}
+.formProfileEdit > label > input:focus, .formProfileEdit > label > select:focus{
+    outline: 3px solid #ff7878;
+}
 .profileEditCont > div{
     background: #F3F0D7;
     color: #FF7878;
     width: 100%;
     padding-left: 10px;
+    padding: 10px;
 }
 .profileEditCont > div:last-child{
     border-left: 2px solid #F3F0D7;
 }
+.passLabel{
+    flex-direction: column;
+}
+.passLabel > input{
+    margin-top: 5px;
+}
+.formProfileEdit > label > input[type="file"]{
+    width: 0.1px;
+    height: 0.1px;
+    opacity: 0;
+    display: none;
+}
+.formProfileEdit > label[for="avatar"]{
+    background: #ff7878;
+    color: #000;
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+    padding: 15px;
+    width: 50%;
+    margin: auto;
+    border-radius: 5px;
+    margin-top: 5px;
+    cursor: pointer;
+}
+/* .inputAvatar{
+    background-color: red;
+} */
 @media only screen and (min-width: 768px){
     .seccion-usuario_perfil-compras{
         display: flex;
@@ -144,4 +167,10 @@
     } 
 }
 @media only screen and (min-width: 1024px){
+    .profileEditCont{
+        flex-direction: row;
+    }
+    .profileEditCont > img{
+        margin: 10px;
+    }
 }

@@ -2,6 +2,7 @@ const express = require('express');
 const router = express.Router();
 const controllerPages = require('../controller/controllerPages');
 const validacion=require('../middleware/validation');
+const contactValidation = require("../middleware/contactValidation");
 const auth = require("../middleware/authMiddleware");
 
 router.get('/', controllerPages.home);
@@ -13,7 +14,9 @@ router.get('/register',auth.visited, controllerPages.register);
 router.post('/register', validacion,controllerPages.regProcess);
 
 router.get('/contacto', controllerPages.contacto);
+router.post('/contacto',contactValidation, controllerPages.contactoProcess);
 router.get('/somos', controllerPages.somos);
+
 
 //Rutas de instalador
 router.get('/install', controllerPages.install);

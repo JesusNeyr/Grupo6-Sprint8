@@ -4,7 +4,7 @@
     margin: auto;
 }
 .contenedor-imagenes-carruselHome > ul{
-list-style: none;
+    list-style: none;
     margin: 0;
     padding: 0;
     display: flex;
@@ -19,7 +19,7 @@ list-style: none;
 .contenedor-imagenes-carruselHome > ul > li > img{
     width: 100%;
     height: 20rem;
-    object-fit: cover;
+    object-fit: fill;
 }
 @keyframes cambio {
     0%{margin-left: 0;}

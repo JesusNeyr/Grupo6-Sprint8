@@ -17,7 +17,7 @@
                 <% } %> 
             </div>
             <% if(user){ %> 
-                <% if (orderConsult !== null) { %>
+                <% if (orderConsult!== null) { %>
                     <form  action="/carrito/delete/<%= articulo.id %>?_method=DELETE" method="post">
                         <input class="carritoDetail" type="submit" value="QUITAR DEL CARRITO"/>
                     </form>
@@ -47,10 +47,6 @@
                     <button type="submit"class="recommendedButton">Quitar recomendación <i class="fas fa-thumbs-down"></i></button>
                 </form> 
             <% } %>  
-            <!-- <div class="compartirDetail">
-                <i class="fab fa-facebook-square"></i>
-                <i class="fab fa-instagram"></i>
-            </div> -->
         </div>
         <div class="infoDetail">
             <h4>Informacion adicional</h4>

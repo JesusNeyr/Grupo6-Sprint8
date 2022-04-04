@@ -43,23 +43,33 @@
     flex-direction: column;
     align-items: center;
 }
-.contactForm > input{
+.contactForm > input,.contactForm > textarea{
     width: 90%;
     padding: 10px 5px;
     margin: 5px 0;
-}
-.contactForm > textarea{
-    width: 90%;
+    border-radius: 5px;
+    border: 3px solid #ff7878;
     resize: vertical;
+    color: #ff7878;
+    font-weight: bold;
+}
+.contactForm > input:focus,.contactForm > textarea:focus{
+    outline: 3px solid #ff7878;
 }
 .contactForm > input[type="submit"]{
     background: #CEE5D0;
     border: 1px solid #c7c7c7;
     border-radius: 12px;
+    cursor: pointer;
+    font-weight: bold;
+    color: #000;
 }
 .contactForm > input[type="submit"]:hover{
     background-color: #b0c5b1;
     transition-duration: 0.2s;
+    animation: pulse;
+    animation-duration: 1s;
+    animation-iteration-count: infinite;
 }
 @media only screen and (min-width: 768px){
     
@@ -75,5 +85,5 @@
     .contC1 > img{
         width: 14%;
     }
-    .contC2 { grid-area: 2 / 1 / 6 / 3; }
+    .contC2 { display: flex; }
 }

@@ -65,7 +65,7 @@ const controllerApiUser = {
             },
             data: {userConsult}
         }
-        res.json(`El total de usuario es ${response.meta.total}`)
+        res.json(`El total de usuarios es ${response.meta.total}`)
     }
     
 }

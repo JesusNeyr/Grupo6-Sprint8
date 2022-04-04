@@ -117,6 +117,7 @@ const controllerProduct={
     },
     productDetail: async(req, res) =>{
         let visitedConsult;
+        let orderConsult
         if(req.session.user){
             visitedConsult = await Visited.findOne({
                 where:{
@@ -124,7 +125,7 @@ const controllerProduct={
                     user_id: req.session.user.id
                 }
             });
-            let orderConsult= await db.OrderDetail.findOne({where:{user_add_id:req.session.user.id,product_id:req.params.id}})
+             orderConsult= await db.OrderDetail.findOne({where:{user_add_id:req.session.user.id,product_id:req.params.id}})
         }else{
             visitedConsult = "visited"
             orderConsult = null

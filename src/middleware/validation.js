@@ -1,8 +1,5 @@
 const {body}=require('express-validator');
-// const mainJson=require('../model/mainJson')
-// const db=mainJson('user');
-const db = require('../database/models')
-const User = db.User;
+
 const validaciones=[
     body('first_name').notEmpty().isLength({min:2}).withMessage('Nombre obligatorio'),
     body('last_name').notEmpty().withMessage('Apellido obligatorio'),

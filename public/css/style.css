@@ -30,6 +30,10 @@ body{
 .logoHeader > a > img{
     height: 70px;
 }
+.logoHeader > a > img:hover{
+    animation: rubberBand;
+    animation-duration: .8s;
+}
 .searchHeader{
     display: flex;
     align-items: center;
@@ -169,6 +173,15 @@ body{
     border: 1px solid #000;
     padding: 10px;
     margin-top: 10px;
+}
+.successMsg{
+    background: #d4edda;
+    color: #155724;
+    padding: 10px;
+    width: 80%;
+    text-align: center;
+    border-radius: 5px;
+    border: 1px solid #c3e6cb;
 }
 @media only screen and (min-width: 768px){
     /*header*/

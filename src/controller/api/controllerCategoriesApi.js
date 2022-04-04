@@ -55,16 +55,16 @@ const controllerApiCategories = {
         return res.json(response)
     },
     count: async(req,res)=>{
-        let productConsult = await Product.findAll();
+        let catConsult = await Cat.findAll();
         let response = {
             meta: {
                 status: 200,
-                total: productConsult.length,
-                url: 'api/users/count'
+                total: catConsult.length,
+                url: 'api/categories/count'
             },
-            data: {productConsult}
+            data: {catConsult}
         }
-        res.json(`El total de usuario es ${response.meta.total}`)
+        res.json(`El total de categorias es ${response.meta.total}`)
     }
 }
 

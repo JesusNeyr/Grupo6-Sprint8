@@ -50,3 +50,6 @@ sequelize model:generate --name OrderDetail --attributes quantity:integer,subtot
 sequelize model:generate --name PromoCode --attributes code:string,active:integer,discount:integer
 
 sequelize model:generate --name UsePromoCode --attributes id_code:integer,id_user:integer,used:integer
+
+
+sequelize model:generate --name Contact --attributes name:string,email:string,message:text,viewed:integer

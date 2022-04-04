@@ -53,10 +53,8 @@ const controllerApiProduct = {
         let response ={
             meta:{
                 status: 200,
-                total: productConsult.length,
                 url: 'api/products/'+id+'/detail'
             },
-            count: productConsult.length,
             products: {
                 data: {
                     id:productConsult.id,
@@ -67,8 +65,11 @@ const controllerApiProduct = {
                     stock_min:productConsult.stock_min,
                     stock_max:productConsult.stock_max,
                     category: productConsult.cats.name,
+                    categoryId: productConsult.cat_id,
                     size: productConsult.sizes.size,
+                    sizeId: productConsult.size_id,
                     discount: productConsult.discounts.discount,
+                    discountId: productConsult.discount_id,
                     description: productConsult.description,
                     visibility: productConsult.visibility,
                     imagen: productConsult.images[0].image,
@@ -126,6 +127,38 @@ const controllerApiProduct = {
             image: "default.jpg",
             id_products: productCreate.id
         })
+    },
+    updateProduct: async(req,res)=>{
+        let id = req.params.id;
+        let imageUpdate = await Image.findOne({where:{id_products:id}})
+        let productUpdate = await Product.update({
+            name: req.body.name,
+            price_inv: req.body.price_inv,
+            price_who: req.body.price_who,
+            stock: req.body.stock,
+            stock_min: req.body.stock_min,
+            stock_max: req.body.stock_max,
+            cat_id: req.body.category,
+            size_id: req.body.size,
+            discount_id: req.body.discount,
+            description: req.body.description,
+            visibility: req.body.visibility
+        },{
+            where: {id: id}
+        });
+        if(req.file && req.file.filename !== undefined){
+            if(imageUpdate.image == "default.jpg"){
+                await Image.update({
+                    image: req.file.filename
+                },{where: {id_products: req.params.id}})
+            }else{
+                await Image.update({
+                    image: req.file.filename
+                },{where: {id_products: req.params.id}})
+                //solo funciona en local
+                //fs.unlinkSync(path.resolve(__dirname,`../../public/img/products/${imageUpdate.image}`))                
+            }
+        }
     }
 }
 

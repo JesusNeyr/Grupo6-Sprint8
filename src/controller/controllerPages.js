@@ -9,6 +9,7 @@ const Address = db.Address;
 const Product = db.Product;
 const Visited = db.Visited;
 const Image = db.Image
+const Contact = db.Contact;
 
 const controllerPages = {
     'home': async(req, res) => {
@@ -102,6 +103,22 @@ const controllerPages = {
     },
     'contacto':(req, res) =>{
         res.render('pages/contacto.ejs') 
+    },
+    'contactoProcess':(req,res)=>{
+        const errors=validationResult(req);
+        if(!errors.isEmpty()){
+            return res.render('pages/contacto.ejs',{
+                errors:errors.mapped(),
+                oldData:req.body
+            })
+        }
+        Contact.create({
+            name: req.body.name,
+            email: req.body.email,
+            message: req.body.message,
+            viewed: 0
+        })
+        .then(response => res.render('pages/contacto.ejs',{msgForm:true}))
     },
     'somos':(req, res) =>{
         res.render('pages/somos.ejs') /* res.render muestra el motor de plantilla/ valor */
