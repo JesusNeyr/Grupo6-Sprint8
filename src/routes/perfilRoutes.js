@@ -7,7 +7,7 @@ const upload = require('../middleware/avatarUpload');
 router.get('/:id',auth.logged,controllerPerfil.detail);
 router.get('/:id/edit',auth.logged,auth.user,controllerPerfil.edit);
 router.put('/:id/edit/address',auth.logged,auth.user,controllerPerfil.addressProcess);
-router.put('/:id/edit/info',auth.logged,auth.user,upload.single('avatar'),controllerPerfil.userInfoProcess);
+router.put('/:id/edit/info',auth.logged,upload.single('avatar'),controllerPerfil.userInfoProcess);
 // /perfil/3/editar
 
 

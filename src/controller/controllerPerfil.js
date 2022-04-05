@@ -43,13 +43,13 @@ const controllerPerfil={
          .catch(e=>console.log(e))
     },
     userInfoProcess: async (req,res)=>{
-        let userConsult = await User.findByPk(req.params.id).then(response=>response);
+        let userConsult = await User.findByPk(req.params.id);
         let avatarOld = userConsult.avatar_id;
-        let avatarConsult = await Avatar.findByPk(avatarOld).then(response=>response);
+        let avatarConsult = await Avatar.findByPk(avatarOld);
         if(req.file !== undefined){
             let newAvatar = await Avatar.create({
                 avatar: req.file.filename
-            }).then(response=>response)
+            })
             let userUpdate = await User.update({
                 first_name: req.body.first_name,
                 last_name: req.body.last_name,
@@ -57,29 +57,21 @@ const controllerPerfil={
                 pass: hashSync(req.body.pass,10),
                 avatar_id: newAvatar.id
             },{where:{id:req.params.id}})
-            .then(response=>{
-                if(avatarOld != 1){
-                    Avatar.destroy({where:{id:avatarOld}}).then(response=>response)
-                    //solo funciona en local
-                    //fs.unlinkSync(path.resolve(__dirname,`../../public/img/avatars/${avatarConsult.avatar}`))
-                }
-            });
         }else{
-            User.update({
+            await User.update({
                 first_name: req.body.first_name,
                 last_name: req.body.last_name,
                 email: req.body.email,
                 pass: hashSync(req.body.pass,10),
                 avatar_id: avatarOld
             },{where:{id:req.params.id}})
-            .then(response =>{
-                 res.redirect('/perfil/'+req.params.id);
-            })
+            
+            return res.redirect('/perfil/'+req.params.id);
         }
         if(userConsult.email !== req.body.email){
-            res.redirect('/logout')
+            return res.redirect('/logout')
          }else{
-            res.redirect('/perfil/'+req.params.id)
+            return res.redirect('/perfil/'+req.params.id)
          }
     }
 }

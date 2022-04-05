@@ -37,7 +37,7 @@ const controllerApiProduct = {
                 description: product.description,
                 visibility: product.visibility,
                 detail: `api/products/${product.id}/detail`,
-                image: `http://${req.headers.host}/img/products/${product.images[0].image}`
+                //image: `http://${req.headers.host}/img/products/${product.images[0].image}`
             }) 
             return product
         });
@@ -162,10 +162,18 @@ const controllerApiProduct = {
         }
     },
     deleteProduct: (req,res)=>{
+        db.Visited.destroy({
+            where:{
+                product_id: req.params.id
+            }
+        })
         Image.destroy({
             where:{
                 id_products: req.params.id
             }
+        })
+        db.OrderDetail.destroy({
+            where: {product_id: req.params.id}
         })
         Product.destroy({
             where: {
