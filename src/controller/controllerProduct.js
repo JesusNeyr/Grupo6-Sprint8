@@ -139,7 +139,14 @@ const controllerProduct={
         let productConsult = await Product.findByPk(req.params.id,{
             include: ["images","sizes","cats"]
         });
-        res.render('pages/productDetail.ejs',{articulo:productConsult,visitedConsult,orderConsult})
+        let categoryProducts = await Cat.findOne({
+            where: {
+                id: productConsult.cat_id
+            },
+            include: [{association:'products',include:['images','discounts']}]
+        })
+        console.log();
+        res.render('pages/productDetail.ejs',{articulo:productConsult,visitedConsult,orderConsult,categoryProducts: categoryProducts.products})
     },
     recommended: async(req,res)=>{
         let visited=1;
