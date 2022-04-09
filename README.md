@@ -39,5 +39,9 @@ El público objetivo serán adultos que tengan hijos o familiares de a - 6 años
 ## Tablero de trabajo
 https://trello.com/b/18JyjpiX/dh-web
 
+## Heroku
+https://tiendagugu.herokuapp.com/
+
 ## Instructivo
 https://github.com/JesusNeyr/Grupo6-Sprint8/blob/main/entregables/gugu%20e-commerce%20instrucciones.pdf
+https://youtu.be/ouVc8JxGUvU
